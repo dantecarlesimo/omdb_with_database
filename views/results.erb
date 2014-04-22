@@ -1,0 +1,27 @@
+
+<%if @movies == nil || @movies ==""%>
+<!-- WHY wont this work anymore?-->
+
+	<h1>Error, that movie doesn't exist!</h1>
+	<form method="get" action="/">
+	   <input type="submit" value="Return to Search "> 
+	</form>
+<%else%>
+	<h1>Movie List</h1>
+	<div>
+		<ul>
+			
+		 <% @movies.each do |movie| %>
+		 <li>
+			 <a href='/details/<%=movie["id"]%>'>
+			 <%= movie["title"]%>
+			 <%= movie["year"] %>
+			 </a>
+		 </li>
+	 	<% end%>
+	 	</ul>
+ 	</div>
+ 	<div>	
+ 	<!-- <img src= images/countdown.gif> -->
+	</div>
+ <%end%>
